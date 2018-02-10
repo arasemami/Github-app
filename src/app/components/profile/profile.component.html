@@ -1,0 +1,113 @@
+<header class="container-fluid header-bg">
+    <div class="">
+        <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+        <span style="font-size: 1.4em;">Github App </span>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+
+        <div style="margin-top: 50px;"></div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div class="row">
+                    <div class="col-lg-2 col-md-12  ">
+                        <div class="avatar-box   mx-auto d-block">
+                            <a *ngIf="profile" href="{{profile.html_url}}" target="_blanck">
+                                <img class="img-box  " width="100" height="100" *ngIf="profile" src="{{profile.avatar_url}}" alt="avatar">
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-lg-9 col-md-12 col-sm-12">
+
+                        <div class="  input-box">
+                            <input type="text" (keyup.enter)="findProfile()" autocomplete="off" placeholder="Github Username . . ." [(ngModel)]="username"
+                                class="  input" name="username">
+                            <div (click)="findProfile()" class="search-box">
+                                <i class="fa fa-search fa-2x" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div *ngIf="loading" class="loader mx-auto d-block"> </div>
+                <div class="row">
+                    <div *ngIf="profile" class="text-cover text-center">
+                        <span *ngIf="profile.name">{{profile.name}} |</span>
+                        <span *ngIf="profile.login">({{profile.login}}) |</span>
+                        <span *ngIf="profile.company">{{profile.company}} |</span>
+                        <span *ngIf="profile.location">{{profile.location}} </span>
+                        <a href="{{profile.html_url}}" target="_blnck" class="btn btn-warning btn-lg" style="margin-left: 1rem;">Follow</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Repos Part ***************************** -->
+            <div class="col-lg-8 col-md-12 col-sm-12">
+                <div *ngIf="profile" class="resualt-box ">
+                    <div *ngIf="repos!=0" class="container">
+                        <div class="row">
+                            <div class="table-responsive">
+                                    <table class="table">
+                                            <thead>
+                                                <tr class="title-bar">
+                                                    <td scope="col">
+                                                        <i class="fa fa-folder fa-1x" style="color: #3498db; width: 5%;" aria-hidden="true"></i>
+                                                    </td>
+                                                    <th scope="col" (click)="sort('name')">Repos
+                                                        <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                                    </th>
+                                                    <th scope="col" (click)="sort('forks_count')">forks
+                                                        <span class="glyphicon sort-icon" *ngIf="key =='forks_count'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                                    </th>
+                                                    <th scope="col" (click)="sort('watchers_count')">watchers
+                                                        <span class="glyphicon sort-icon" *ngIf="key =='watchers_count'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                                    </th>
+                                                    <th scope="col" (click)="sort('stargazers_count')">stars
+                                                        <span class="glyphicon sort-icon" *ngIf="key =='stargazers_count'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                                                    </th>
+                                                    <th scope="col">
+                                                        <i class="fa fa-link fa-1x" style="color: #2a343a;" aria-hidden="true"></i>
+                                                    </th>
+                                                </tr>
+            
+                                            </thead>
+                                            <tbody>
+                                                <tr class="title-row " *ngFor="let repo of repos | orderBy: key : reverse | paginate: { itemsPerPage: 8, currentPage: p }; let i = index">
+                                                    <td scope="col">
+                                                        <i class="fa fa-folder fa-1x" style="color: #3498db;" aria-hidden="true"></i>
+                                                    </td>
+                                                    <td scope="col">{{repo.name}}</td>
+                                                    <td scope="col">{{repo.forks_count}}</td>
+                                                    <td scope="col">{{repo.watchers_count}}</td>
+                                                    <td scope="col">{{repo.stargazers_count}}</td>
+                                                    <td scope="col">
+                                                        <a class="btn-view" href="{{repo.html_url}}" target="_blanck">View</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <div aria-label="Page navigation example">
+                                            </div>
+            
+                                        </table>
+                            </div>
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                        </div>
+                    </div>
+                    <!-- Not Found Dive ***************************** -->
+                    <div *ngIf="repos==0" class="container text-center" style="color:#bfd5e2;">
+                        <i class="fa fa-github fa-5x" aria-hidden="true"></i>
+                        <br>
+                        <h3> Repository Not found!</h3>
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
