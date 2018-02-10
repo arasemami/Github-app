@@ -27,11 +27,16 @@ private loading : boolean = false;
   }
  // var page number default start from 1 page
   p: number = 1;
+  tPage : number = 0; // Get Total page
+  iPage : number = 8;// Get Iteam for page
+
+
  
 
   constructor( private profileService : ProfileService) {   }
   
   findProfile(){
+    
     this.loading = true;
     this.profileService.updateProfile(this.username);
 
@@ -43,9 +48,12 @@ private loading : boolean = false;
 
     this.profileService.getProfileRepos().subscribe(repos => {
       this.repos = repos;
+      this.tPage = repos.length; // get Totla Repos 
+      // console.log(repos);
       this.loading = false;
-       console.log(repos);
     })
+
+   // console.log(this.p);
   
   }
 
