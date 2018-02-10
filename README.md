@@ -1,7 +1,7 @@
 # Github-app
 Github-app with Angular 5
 
-![alt text]()
+![alt text](https://image.ibb.co/gcsGi7/githubapp.jpg)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 5.2.3
