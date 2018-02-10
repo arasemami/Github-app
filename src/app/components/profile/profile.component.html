@@ -95,7 +95,7 @@
             
                                         </table>
                             </div>
-                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            <pagination-controls *ngIf="p != 1" (pageChange)="p = $event"></pagination-controls>
                         </div>
                     </div>
                     <!-- Not Found Dive ***************************** -->
