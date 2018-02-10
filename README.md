@@ -1,6 +1,9 @@
 # Github-app
 Github-app with Angular 5
 
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 5.2.3
 
 `npm install -g @angular/cli`
