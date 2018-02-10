@@ -4,13 +4,15 @@ Github-app with Angular 5
 ![alt text](https://image.ibb.co/gcsGi7/githubapp.jpg)
 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 5.2.3
+This project was generated with [Angular.js](http://angular.io/) version 5.2.3
+
+`npm install`
 
 `npm install -g @angular/cli`
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files. 
 
 ## Code scaffolding
 
