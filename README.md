@@ -1,6 +1,8 @@
 # Github-app
 Github-app with Angular 5
 
+Searching, Filtering, Pagination, Sorting, Get From API
+
 ![alt text](https://image.ibb.co/gcsGi7/githubapp.jpg)
 
 
