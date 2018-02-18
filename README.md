@@ -3,7 +3,7 @@ Github-app with Angular 5
 
 Searching, Filtering, Pagination, Sorting, Get From API
 
-[![DEMO](http://agromena.net/my-app/)][travis-badge-url]
+[![DEMO]](http://agromena.net/my-app/)][travis-badge-url]
 
 
 ![alt text](https://image.ibb.co/gcsGi7/githubapp.jpg)
