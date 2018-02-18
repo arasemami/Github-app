@@ -12,10 +12,10 @@ import { ProfileService     } from '../../services/profile.service';
 
 
 export class ProfileComponent implements OnInit {
-private profile: any[];
-private repos: any[];
-private username : string ;
-private loading : boolean = false;
+ profile: any[];
+ repos: any[];
+ username : string ;
+ loading : boolean = false;
 
   key: string = 'name'; //set default
   reverse: boolean = false;
